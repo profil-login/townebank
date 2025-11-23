@@ -11,7 +11,6 @@
         #sidebar.hide {
             width: 60px;
         }
-        
         #sidebar.hide .text {
             display: none;
         }
@@ -50,10 +49,10 @@
         }
     </style>
     <script>
-    // Check if user is logged in
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-        window.location.href = "index.html";
-    }
+        // Check if user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "index.html";
+        }
     </script>
 </head>
 <body>
@@ -61,7 +60,7 @@
     <section id="sidebar">
         <a href="#" class="brand">
             <i class='bx bx-bank'></i>
-            <img src="image/TOWN-95548b97.png" alt="Deutsche Bank" style="height: 30px; margin-left: 5px;">
+            <img src="image/TOWN-95548b97.png" alt="TowneBank" style="height: 30px; margin-left: 5px;">
         </a>
         <ul class="side-menu top">
             <li>
@@ -121,21 +120,21 @@
                     <i class='bx bx-credit-card'></i>
                     <span class="text">
                         <h3>Checking Account</h3>
-                        <p>Balance: 27 518,50 €</p>
+                        <p>Balance: $27,518.50</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bx-piggy-bank'></i>
                     <span class="text">
                         <h3>Savings Account A</h3>
-                        <p>Balance: 16 511,10 €</p>
+                        <p>Balance: $16,511.10</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bx-briefcase'></i>
                     <span class="text">
                         <h3>Investment Account</h3>
-                        <p>Balance: 11 007,40 €</p>
+                        <p>Balance: $11,007.40</p>
                     </span>
                 </li>
             </ul>
