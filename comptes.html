@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>TowneBank</title>
+    <link rel="shortcut icon" href="image/TOWN-95548b97.png">    
+    <style>
+        #sidebar.hide {
+            width: 60px;
+        }
+        
+        #sidebar.hide .text {
+            display: none;
+        }
+        .card-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .card {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            position: relative;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card-chip {
+            font-size: 24px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .card-number {
+            font-size: 22px;
+            margin-top: 60px;
+            letter-spacing: 2px;
+        }
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+    // Check if user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "index.html";
+    }
+    </script>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bx-bank'></i>
+            <img src="image/TOWN-95548b97.png" alt="Deutsche Bank" style="height: 30px; margin-left: 5px;">
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="dashboard.html">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <i class='bx bx-wallet'></i>
+                    <span class="text">My Accounts</span>
+                </a>
+            </li>
+            <li>
+                <a href="virements.html">
+                    <i class='bx bx-transfer'></i>
+                    <span class="text">Transfers</span>
+                </a>
+            </li>
+            <li>
+                <a href="factures.html">
+                    <i class='bx bx-receipt'></i>
+                    <span class="text">Bills & Subscriptions</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="parametre.html">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- CONTENT -->
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>My Accounts</h1>
+                </div>
+            </div>
+            <ul class="box-info">
+                <li>
+                    <i class='bx bx-credit-card'></i>
+                    <span class="text">
+                        <h3>Checking Account</h3>
+                        <p>Balance: 27 518,50 €</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-piggy-bank'></i>
+                    <span class="text">
+                        <h3>Savings Account A</h3>
+                        <p>Balance: 16 511,10 €</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-briefcase'></i>
+                    <span class="text">
+                        <h3>Investment Account</h3>
+                        <p>Balance: 11 007,40 €</p>
+                    </span>
+                </li>
+            </ul>
+
+            <div class="card-section">
+                <h2>Debit Card</h2>
+                <div class="card">
+                    <div class="card-chip"><i class='bx bx-chip'></i></div>
+                    <div class="card-number">**** **** **** 4754</div>
+                    <div class="card-info">
+                        <span class="card-holder">Brian Keith Jenkins</span>
+                        <span class="card-expiry">12/26</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBar = document.querySelector('#content nav .bx.bx-menu');
+            const sidebar = document.getElementById('sidebar');
+
+            if (menuBar && sidebar) {
+                menuBar.addEventListener('click', function () {
+                    sidebar.classList.toggle('hide');
+                });
+            }
+        });
+
+        // Logout
+        document.querySelector('.logout').addEventListener('click', function() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
+    <title>TowneBank</title>
+	<link rel="shortcut icon" href="image/TOWN-95548b97.png">
+	<style>
+		.settings-container {
+			width: 100%;
+			max-width: 600px;
+			margin: auto;
+			padding: 20px;
+			background: white;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+		.profile-img {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			object-fit: cover;
+			margin-bottom: 15px;
+			border: 3px solid #007bff;
+		}
+		.settings-container h3 {
+			margin-bottom: 10px;
+			color: #333;
+		}
+		.info {
+			margin: 10px 0;
+			font-size: 16px;
+			font-weight: bold;
+			color: #555;
+		}
+		.settings-container label {
+			display: block;
+			margin: 10px 0 5px;
+			font-weight: bold;
+		}
+		.settings-container input {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		.settings-container .btn {
+			margin-top: 15px;
+			padding: 10px;
+			width: 100%;
+			background: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.settings-container .btn:hover {
+			background: #0056b3;
+		}
+		.toggle-switch {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
+		}
+        #sidebar.hide { width: 60px; }
+        #sidebar.hide .text { display: none; }
+	</style>
+    <script>
+        // Check if user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+<body>
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bx-bank'></i>
+			<img src="image/TOWN-95548b97.png" alt="Deutsche Bank" style="height: 30px; margin-left: 5px;">
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="dashboard.html">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="comptes.html">
+					<i class='bx bx-wallet'></i>
+					<span class="text">My Accounts</span>
+				</a>
+			</li>
+			<li>
+				<a href="virements.html">
+					<i class='bx bx-transfer'></i>
+					<span class="text">Transfers</span>
+				</a>
+			</li>
+			<li>
+				<a href="factures.html">
+					<i class='bx bx-receipt'></i>
+					<span class="text">Bills & Subscriptions</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li class="active">
+				<a href="parametre.html">
+					<i class='bx bxs-cog'></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Log out</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<!-- CONTENT -->
+	<section id="content">
+		<nav>
+			<i class='bx bx-menu'></i>
+		</nav>
+
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Settings</h1>
+				</div>
+			</div>
+
+			<div class="settings-container">
+				<h3>Personal Information</h3>
+				<img src="image/cercle-bleu-utilisateur-blanc_78370-4707.avif" alt="Profile picture" class="profile-img">
+				<p class="info"><strong>Name:</strong> Brian Keith Jenkins</p>
+			</div>
+		</main>
+	</section>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const menuBar = document.querySelector('#content nav .bx.bx-menu');
+			const sidebar = document.getElementById('sidebar');
+
+			if (menuBar && sidebar) {
+				menuBar.addEventListener('click', function () {
+					sidebar.classList.toggle('hide');
+				});
+			}
+		});
+		
+		// Log out
+		document.querySelector('.logout').addEventListener('click', function() {
+			localStorage.removeItem("isLoggedIn");
+			window.location.href = "index.html";
+		});
+	</script>
+
+</body>
+</html>
